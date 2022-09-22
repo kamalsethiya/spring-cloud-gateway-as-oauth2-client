@@ -18,9 +18,9 @@ There are two API gateway implementations :
 
 Few test URLS:
 ----------------
-http://localhost:8087/albums
-http://localhost:8087/users/status/check
-http://localhost:8087/users/status/check/unprotected
-http://localhost:8087/index.html
-http://localhost:8087/index-cookie-domain
-http://localhost:8087/index-cookie-localhost
+ - http://localhost:8087/albums
+ - http://localhost:8087/users/status/check
+ - http://localhost:8087/users/status/check/unprotected
+ - http://localhost:8087/index.html
+ - http://localhost:8087/index-cookie-domain
+ - http://localhost:8087/index-cookie-localhost
