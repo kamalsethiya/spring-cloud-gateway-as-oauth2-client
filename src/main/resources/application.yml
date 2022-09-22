@@ -1,0 +1,25 @@
+#spring:
+#  cloud:
+#    gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods: "*"
+#            allowedHeaders: "*"
+#            allowedHeaders: "Origin, Authorization, Content-Type, Accept, cookie, X-Requested-With"
+#            allowCredentials: true
+#   
+
+# IMPORTANT NOTE: enabling cors from here is somehow not working. Hence, I have enable cors configuration by defining a bean of type CorsConfigurationSource in the class SecurityConfig      
+
+#spring:
+#  cloud:
+#    gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods: "*"
+##              - GET
+#            allowedHeaders: "*"

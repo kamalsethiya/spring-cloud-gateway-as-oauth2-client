@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript application with Authorization code</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script language="javascript">
+function getInfoFromAlbumServer(){
+	 
+    $.ajax({
+        type: "GET",
+        //url: "http://api.manage.com:8087/albums",
+        url: "http://localhost:8087/albums",
+        success: postInfoFromAccessToken,
+        dataType: "text",
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+}
+
+function getInfoFromResourceServer(){
+	
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8087/users/status/check",
+        success: postInfoFromAccessToken,
+        error: function (request, ajaxOptions, thrownError) {
+        	 alert(request.status);
+             alert(thrownError);
+             alert(request.getAllResponseHeaders())
+          }
+    });
+}
+
+function getUnprotectedInfoFromResourceServer(){
+	 
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8087/users/status/check/unprotected",
+        success: postInfoFromAccessToken,
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+          }
+    });
+}
+
+function postInfoFromAccessToken(data, status, jqXHR) {
+    alert(data);
+}
+
+
+</script>
+
+</head>
+<body>
+<h1>Index page</h1>
+
+  <div><input type="button" value="users/status/check" onclick="getInfoFromResourceServer()"/></div>
+  <div><input type="button" value="users/status/check/unprotected" onclick="getUnprotectedInfoFromResourceServer()"/></div>
+  <div><input type="button" value="albums" onclick="getInfoFromAlbumServer()"/></div>
+
+</body>
+</html>
