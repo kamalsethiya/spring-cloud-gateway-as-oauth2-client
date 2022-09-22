@@ -10,6 +10,7 @@ Sequence to start services:
 5. Start ResourceServer
 6. Start albums
 7. Start photos
+8. Start spa-example
 
 There are two API gateway implementations :
 ---------------------------
