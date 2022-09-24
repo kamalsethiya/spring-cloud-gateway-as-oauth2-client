@@ -81,10 +81,8 @@ public class SecurityConfig {
 	@Bean
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		// @formatter:off
-		// below we are allowing /users/status/check to bypass authentication and all
-		// other request must be authenticated. Similarly, we can bypass health endpoint.
-//		http.authorizeExchange(authorizeExchangeSpec -> authorizeExchangeSpec.pathMatchers("/users/status/check","/actuator/health")
-		http.authorizeExchange(authorizeExchangeSpec -> authorizeExchangeSpec.pathMatchers("/users/status/check/unprotected","/actuator/health")
+	     // Below we are allowing /users/status/check/unprotected, health and whoami APIs to bypass authentication and all other requests must be authenticated. 
+		http.authorizeExchange(authorizeExchangeSpec -> authorizeExchangeSpec.pathMatchers("/users/status/check/unprotected","/actuator/health","/whoami")
 				.permitAll()
 				//.pathMatchers("/actuator/gateway/routes").hasAnyRole("developer","admin")
 				.anyExchange().authenticated()).oauth2Login();
